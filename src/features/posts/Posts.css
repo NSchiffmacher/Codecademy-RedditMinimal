@@ -20,11 +20,16 @@
     display: flex;
     flex-direction: row;
     box-shadow: rgba(50, 50, 93, 0.15) 0px 13px 27px -5px, rgba(0, 0, 0, 0.2) 0px 8px 16px -8px;
+    transition: box-shadow 0.3s ease-in-out;
 
     max-width: 32rem;
     
     padding: 0.750rem 0;
     margin: 0 auto;
+}
+
+.posts .post:hover {
+    box-shadow: rgba(50, 50, 93, 0.32) 0px 13px 27px -5px, rgba(0, 0, 0, 0.35) 0px 8px 16px -8px;
 }
 
 .posts .post .arrow {
@@ -59,16 +64,6 @@
     font-size: 0.9rem;
     color: rgba(30,30,30, 0.70);
 }
-
-/* <div className="body">
-            <h2 className="post_title">Getting paid on the Wall of Death in Rajkot, India</h2>
-            <img src="" className="post_img" alt="Post Image" />
-            <div className="post_footer">
-                <span className="post_author">Posted by <span className="blue">someone</span></span>
-                <span className="post_date">7 hours ago</span>
-                <span className="post_comments">icon: 689</span>
-            </div>
-        </div> */
 
 .posts .post .body {
     display: flex;
@@ -133,4 +128,18 @@
 
 .posts .post .post_footer .comments_count {
     margin-right: 1.3rem;
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1920px) {
+    .posts .posts_container {
+        grid-template-columns: auto auto;
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    .posts .posts_container {
+        grid-template-columns: auto auto auto;
+        justify-content: center;
+    }
 }
