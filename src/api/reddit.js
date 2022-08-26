@@ -13,7 +13,7 @@ export const fetchSubreddit = async (subreddit) => {
             date_posted     : child.data.created_utc * 1000,
             author          : child.data.author,
             link            : child.data.permalink,
-            image           : child.data.preview ? child.data.preview.images[0].source.url.replace('&amp;','&') : undefined
+            image           : child.data.preview ? child.data.preview.images[0].source.url.replaceAll('&amp;','&') : undefined
         }
     }).filter(post => post.image !== undefined);
 }

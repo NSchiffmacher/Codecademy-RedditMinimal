@@ -4,22 +4,38 @@ import './Posts.css';
 
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams, useNavigate } from 'react-router-dom';
 
-import { selectPosts, selectPostsLoading, loadSubreddit } from './postsSlice';
+import { selectPosts, selectPostsLoading, selectPostsError, loadSubreddit } from './postsSlice';
 
 export function Posts() {
-  const subreddit     = 'r/space';
+  const { subreddit_param, subreddit_no_r_param } = useParams();
+
+  let subreddit = 'r/aww';
+  if (subreddit_param) {
+    subreddit = subreddit_param;
+  } else if (subreddit_no_r_param) {
+    subreddit = `r/${subreddit_no_r_param}`;
+  }
 
   const dispatch      = useDispatch();
+  const navigate      = useNavigate();
+
   const posts         = useSelector(selectPosts);
   const postsLoading  = useSelector(selectPostsLoading);
+  const postsError    = useSelector(selectPostsError);
 
   const postsJSX      = !postsLoading ? posts.map(post => <Post key={post.id} post={post} loading={false} />) : [{id: 0}, {id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}].map(post => <Post key={post.id} post={post} loading={true} />);
   
   useEffect(() => {
-    console.log('hello ? ')
     dispatch(loadSubreddit(subreddit));
-  }, [dispatch])
+  }, [dispatch, subreddit]);
+
+  useEffect(() => {
+    if (postsError) {
+      navigate('/');
+    }
+  }, [navigate, postsError]);
 
   return (
     <div className="posts">
