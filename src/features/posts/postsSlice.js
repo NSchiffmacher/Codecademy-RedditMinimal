@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const postsSlice = createSlice({
     name: "posts",
     initialState: {
-        loading: false,
+        loading: true,
         posts: [{
             id: '1',
-            title: 'Getting paid on the Wall of Death in Rajkot, India',
+            title: 'Getting paid',
             no_upvotes: 35800,
             no_comments: 687,
             date_posted: 1661490009 * 1000,
@@ -24,7 +24,7 @@ const postsSlice = createSlice({
             image: 'https://preview.redd.it/yhvm39buc6m51.jpg?width=960&crop=smart&auto=webp&s=f8d4f8dcdf7d00c2934d7c677fc47a0fb4d3562c'
         },{
             id: '3',
-            title: 'Getting paid on the Wall of Death in Rajkot, India',
+            title: 'Getting paid on the Wall of Death in Rajkot, India kaizreuh zargez a za',
             no_upvotes: 35800,
             no_comments: 687,
             date_posted: 1661490009 * 1000,
