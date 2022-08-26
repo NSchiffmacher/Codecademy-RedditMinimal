@@ -16,6 +16,10 @@
     grid-gap: 1rem;
 }
 
+a.post {
+    text-decoration: none;
+}
+
 .posts .post {
     display: flex;
     flex-direction: row;
