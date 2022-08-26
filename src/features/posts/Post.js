@@ -8,7 +8,7 @@ import Skeleton from '@mui/material/Skeleton';
 
 export function Post({ post, loading }) {
   return (
-    <a className="post" href={ post.link }>
+    <a className="post" target="_blank" rel="noreferrer" href={ `https://reddit.com${post.link}` }>
         <div className="col_ups">
             <img alt="up arrow" className="arrow up" src="/arrow.svg" />
             {

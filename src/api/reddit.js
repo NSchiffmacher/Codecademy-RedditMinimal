@@ -1,7 +1,6 @@
 
 
 export const fetchSubreddit = async (subreddit) => {
-    console.log('fetching subreddit: ' + `https://www.reddit.com/${subreddit}.json`);
     const response = await fetch(`https://www.reddit.com/${subreddit}.json`);
     const json = await response.json();
 
